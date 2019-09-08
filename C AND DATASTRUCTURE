@@ -1,0 +1,157 @@
+//-------------------------------write a program of double linkedlist
+//---------------------------------same as single linkedlist---------------------
+#include <stdio.h>
+#include <stdlib.h>
+struct node 
+{
+	int data;
+	struct node *left;
+	struct node *right;
+};
+int l;
+struct node *head=NULL;
+void insert()
+{
+	struct node *temp;
+	temp=(struct node*)malloc(sizeof(struct node));
+	printf("\nEnter the data:-");
+	scanf("%d",&temp->data);
+	temp->left=NULL;
+	temp->right=NULL;
+	if(head==NULL)
+	{
+		head=temp;
+	}
+	else
+	{
+		struct node* p;
+		p=head;
+		while(p->right!=NULL)
+		{
+			p=p->right;
+		}
+		p->right=temp;
+		temp->left=p;
+	}
+}
+void display()
+{
+	struct node *temp;
+	temp=(struct node*)malloc(sizeof(struct node));
+	temp=head;
+	if(temp==NULL)
+		printf("linklist is empty:-");
+	else
+	{
+		while(temp!=NULL)
+	 	{
+		printf("%d->",temp->data);
+		temp=temp->right;		
+		}
+	}
+}
+int len()
+{
+	int count=0;
+	struct node *temp;
+	temp=head;
+	while(temp!=NULL)
+	{
+		count++;
+		temp=temp->right;
+	}
+	return count;
+}
+void delete()
+{
+	
+	int loc;
+	struct node *temp;
+	temp=(struct node*)malloc(sizeof(struct node));
+	printf("\nenter the location:-");
+	scanf("%d",&loc);
+	if(loc > len())
+	{
+		printf("Invalid location");
+	}
+	else if(loc==1)
+	{
+		temp=head;
+	    head=temp->right;
+	    temp->right=NULL;	
+	    free(temp);
+	}
+	else
+	{
+		struct node *tem=head,*q;
+		int i=1;
+		while(i < loc-1)
+		{
+			tem=tem->right;
+			i++;
+		}
+		q=tem->right;
+		tem->right=q->right;
+		q->right=NULL;
+		free(q);
+	}
+}
+void rev()
+{
+	int i,j,length,k,temp;
+	struct node *p,*q;
+	p=(struct node*)malloc(sizeof(struct node));
+	length=len();
+	i=0,j=length-1;
+	p=q=head;
+	if(i<j)
+	{
+		k=0;
+		while(k<j)
+		{
+			q=q->right;
+			k++;
+		}
+		{
+			temp=p->data;
+			p->data=q->data;
+			q->data=temp;
+			i++;
+			j--;
+		p=p->right;
+		p=head;
+		}
+	}
+}
+int main()
+{
+	int n;
+	while(1)
+	{
+	printf("\nEnter your choice:-");
+	printf("\n1.INSERT:-");
+	printf("\n2.DISPLAY:-");
+	printf("\n3.LENGTH:-");
+	printf("\n4.DELETE:-");
+	scanf("%d",&n);
+	switch(n)
+	{
+		case 1:
+			insert();
+			break;
+		case 2:
+			display();
+			break;
+		case 3:
+			l=len();
+			printf("length of double linklist=%d",l);
+			break;
+		case 4:
+			delete();
+			break;
+		case 5:
+			rev();
+			break;
+	}
+}
+}
