@@ -1,0 +1,53 @@
+import java.util.*;
+interface AB
+{
+	int cal(int a,int b);
+};
+class A implements AB
+{
+	public int cal(int a,int b)
+	{
+		return a+b;
+	}
+}
+class B implements AB
+{
+	public int cal(int a,int b)
+	{
+		return a*b;
+	}
+}
+public class intef
+{
+	public static void main(String args[])
+	{
+		
+		System.out.println("\nEnter the number:-");
+		System.out.println("\n1.ADDITION:-");
+		System.out.println("\n2.MULTIPLY:-");
+		Scanner obj=new Scanner(System.in);
+		int n=obj.nextInt();
+		switch(n)
+		{
+			case 1:
+				System.out.println("\nEnter the numbers:-");
+				Scanner obj1=new Scanner(System.in);
+				int a=obj1.nextInt();
+				int b=obj1.nextInt();
+					A obj2=new A();
+				int k=obj2.cal(a,b);
+				System.out.println("Addition of two numbres:-"+k);
+					break;
+			case 2:
+					System.out.println("\nEnter the numbers:-");
+					Scanner obj3=new Scanner(System.in);
+					int x=obj3.nextInt();
+					int y=obj3.nextInt();
+					B obj4=new B();
+				int f=obj4.cal(x,y);
+				System.out.println("Multiply of two numbers:-"+f);
+					break;
+			}
+	}
+}
+

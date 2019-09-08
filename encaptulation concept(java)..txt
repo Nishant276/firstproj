@@ -1,0 +1,50 @@
+//encaptulation-wrapping the data and code acting in data together in a single unit
+class A//encaptulation example
+{
+	private int a;//data
+	private int b;
+	private String name;
+	public void setA(int a)//code acting on data
+	{
+		this.a=a;
+	}
+	public int getA()//code acting on data
+	{
+		return a;
+	}
+	public void setB(int b)
+	{
+		this.b=b;
+	}
+	public int getB()
+	{
+		return b;
+	}
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public int getADD()
+	{
+		return a+b;
+	}
+}
+public class getsetter
+{
+	public static void main(String args[])
+	{
+		A obj=new A();
+		obj.setA(12);
+		obj.setB(13);
+		obj.setName("monu");
+		System.out.println(""+obj.getA());
+		System.out.println(""+obj.getB());
+		System.out.println(""+obj.getName());
+		System.out.println(""+obj.getADD());
+		
+	}
+}
